@@ -24,3 +24,6 @@ run
 compile
 run}
 run
+exit
+compile
+run

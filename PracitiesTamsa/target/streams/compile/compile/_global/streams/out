@@ -1,12 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Campeon.scala:4:7: class Campeon needs to be abstract, since:[0m
-[0m[[0m[31merror[0m] [0m[0mit has 4 unimplemented members.[0m
-[0m[[0m[31merror[0m] [0m[0m/** As seen from class Campeon, the missing signatures are as follows.[0m
-[0m[[0m[31merror[0m] [0m[0m *  For convenience, these are usable as stub implementations.[0m
-[0m[[0m[31merror[0m] [0m[0m */[0m
-[0m[[0m[31merror[0m] [0m[0m  def ataque1(): (String, Int) = ???[0m
-[0m[[0m[31merror[0m] [0m[0m  def ataque2(): (String, Int) = ???[0m
-[0m[[0m[31merror[0m] [0m[0m  def ataque3(): (String, Int) = ???[0m
-[0m[[0m[31merror[0m] [0m[0m  def ataque4(): (String, Int) = ???[0m
-[0m[[0m[31merror[0m] [0m[0mclass Campeon(){[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/main.scala:36:8: value entrarCampeon is not a member of Lugares.Lugar[0m
+[0m[[0m[31merror[0m] [0m[0m    l0.entrarCampeon(c0)[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

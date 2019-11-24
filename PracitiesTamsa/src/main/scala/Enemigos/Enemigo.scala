@@ -2,6 +2,7 @@ package Enemigos
 
 class Enemigo {
     // Atributos
+    protected var _id           : Int = -1
     protected var _raza         : String = ""
     protected var _nivel        : Int = 0
     protected var _vidaT        : Int = 0
@@ -13,6 +14,7 @@ class Enemigo {
 
     // Metodos
     // Getters
+    def id              = _id
     def raza            = _raza
     def nivel           = _nivel
     def vidaT           = _vidaT
@@ -23,6 +25,7 @@ class Enemigo {
     def lore            = _lore
 
     // Setters
+    def id_(nId : Int) : Unit = {_id = nId}
     def raza_(nRaza : String) : Unit = {_raza = nRaza}
     def nivel_(nNivel : Int) : Unit = {_nivel = nNivel}
     def vidaT_(nVidaT : Int) : Unit = {_vidaT = nVidaT}
@@ -35,13 +38,14 @@ class Enemigo {
     // Funcion de prueba
     def info() : Unit = {
         println(
-            raza + "\n" +
-            nivel + "\n" +
-            vidaT + "\n" +
-            vidaAct + "\n" +
-            atributo + "\n" +
-            resistencias + "\n" +
-            lore + "\n")
+            "Id " +  id + "\n" +
+            "Raza " + raza + "\n" +
+            "Nivel " + nivel + "\n" +
+            "Vida Total " + vidaT + "\n" +
+            "Vida Actual " + vidaAct + "\n" +
+            "Atributo" + atributo + "\n" +
+            "Resistencias" + resistencias + "\n" +
+            "Lore" + lore + "\n")
     }
 
     // Funciones
