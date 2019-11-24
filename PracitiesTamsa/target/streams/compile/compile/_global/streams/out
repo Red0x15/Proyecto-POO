@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/main.scala:36:8: value entrarCampeon is not a member of Lugares.Lugar[0m
-[0m[[0m[31merror[0m] [0m[0m    l0.entrarCampeon(c0)[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 5 deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

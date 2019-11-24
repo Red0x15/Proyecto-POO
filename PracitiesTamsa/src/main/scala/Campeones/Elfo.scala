@@ -1,5 +1,7 @@
 package Campeones
 
+import Items._
+
 class Elfo() extends Campeon{
     
     def cloning() : Campeon ={
@@ -42,5 +44,87 @@ class Elfo() extends Campeon{
         return ("Fuego" ,  temp  )
     }
 
+    def agregarItem(i : Item) : Unit = {
+        var tempStats   : Map[String, Int] = Map()
+        var tempResist  : Map[String, Int] = Map()
+        if(i.tipo == "Espada" || i.tipo == "Varita"  || i.tipo == "Talisman"){
+            tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
+            tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
+            tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire") + ((i.atributos("Aire")*25)/100)))
+            tempStats += ("Tierra"      -> (this.atributos("Tierra")     + i.atributos("Tierra")+ ((i.atributos("Tierra")*10)/100)))
+            tempStats += ("Luz"         -> (this.atributos("Luz")        + i.atributos("Luz") + ((i.atributos("Luz")*75)/100)))
+            tempStats += ("Oscuridad"   -> (this.atributos("Oscuridad")  + i.atributos("Oscuridad")))
+            this.atributos_(tempStats)
+            
+            if(i.tipo == "Talisman"){
+                tempResist += ("Agua"       -> (this._resistencias("Agua")       + i.resistencias("Agua")))
+                tempResist += ("Fuego"        -> (this._resistencias("Fuego")      + i.resistencias("Fuego")))
+                tempResist += ("Aire"        -> (this._resistencias("Aire")       + i.resistencias("Aire") + ((i.atributos("Aire")*25)/100)))
+                tempResist += ("Tierra"      -> (this._resistencias("Tierra")     + i.resistencias("Tierra")+ ((i.atributos("Tierra")*10)/100)))
+                tempResist += ("Luz"         -> (this._resistencias("Luz")        + i.resistencias("Luz") + ((i.atributos("Luz")*75)/100)))
+                tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad")))
+                this.resistencias_(tempResist)
+            }
+        }
+        else{
+            tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
+            tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
+            tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire")))
+            tempStats += ("Tierra"      -> (this.atributos("Tierra")     + i.atributos("Tierra")))
+            tempStats += ("Luz"         -> (this.atributos("Luz")        + i.atributos("Luz")))
+            tempStats += ("Oscuridad"   -> (this.atributos("Oscuridad")  + i.atributos("Oscuridad")))
+            this.atributos_(tempStats)
 
+            tempResist += ("Agua"       -> (this._resistencias("Agua")       + i.resistencias("Agua")))
+            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      + i.resistencias("Fuego")))
+            tempResist += ("Aire"        -> (this._resistencias("Aire")       + i.resistencias("Aire")))
+            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     + i.resistencias("Tierra")))
+            tempResist += ("Luz"         -> (this._resistencias("Luz")        + i.resistencias("Luz")))
+            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad")))
+            this.resistencias_(tempResist)
+        }
+        _inventario = i::_inventario
+    }
+
+    def eliminarItem(i : Item) : Unit = {
+        var tempStats   : Map[String, Int] = Map()
+        var tempResist  : Map[String, Int] = Map()
+        if(i.tipo == "Espada" || i.tipo == "Varita"  || i.tipo == "Talisman"){
+            tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
+            tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
+            tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire") - ((i.atributos("Aire")*25)/100)))
+            tempStats += ("Tierra"      -> (this.atributos("Tierra")     - i.atributos("Tierra")- ((i.atributos("Tierra")*10)/100)))
+            tempStats += ("Luz"         -> (this.atributos("Luz")        - i.atributos("Luz") - ((i.atributos("Luz")*75)/100)))
+            tempStats += ("Oscuridad"   -> (this.atributos("Oscuridad")  - i.atributos("Oscuridad")))
+            this.atributos_(tempStats)
+            
+            if(i.tipo == "Talisman"){
+                tempResist += ("Agua"       -> (this._resistencias("Agua")       - i.resistencias("Agua")))
+                tempResist += ("Fuego"        -> (this._resistencias("Fuego")      - i.resistencias("Fuego")))
+                tempResist += ("Aire"        -> (this._resistencias("Aire")       - i.resistencias("Aire") - ((i.atributos("Aire")*25)/100)))
+                tempResist += ("Tierra"      -> (this._resistencias("Tierra")     - i.resistencias("Tierra")- ((i.atributos("Tierra")*10)/100)))
+                tempResist += ("Luz"         -> (this._resistencias("Luz")        - i.resistencias("Luz") - ((i.atributos("Luz")*75)/100)))
+                tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad")))
+                this.resistencias_(tempResist)
+            }
+        }
+        else{
+            tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
+            tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
+            tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire")))
+            tempStats += ("Tierra"      -> (this.atributos("Tierra")     - i.atributos("Tierra")))
+            tempStats += ("Luz"         -> (this.atributos("Luz")        - i.atributos("Luz")))
+            tempStats += ("Oscuridad"   -> (this.atributos("Oscuridad")  - i.atributos("Oscuridad")))
+            this.atributos_(tempStats)
+
+            tempResist += ("Agua"       -> (this._resistencias("Agua")       - i.resistencias("Agua")))
+            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      - i.resistencias("Fuego")))
+            tempResist += ("Aire"        -> (this._resistencias("Aire")       - i.resistencias("Aire")))
+            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     - i.resistencias("Tierra")))
+            tempResist += ("Luz"         -> (this._resistencias("Luz")        - i.resistencias("Luz")))
+            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad")))
+            this.resistencias_(tempResist)
+        }
+         _inventario = elimE( _inventario , i)
+    }
 }
