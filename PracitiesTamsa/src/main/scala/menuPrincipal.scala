@@ -2,53 +2,68 @@ import Items._
 import Campeones._
 import Enemigos._
 import Lugares._
+import Partidas._
+import Dados._
 
 object menuPrincipal extends App {
-    val dados           : Map[Int, Dado] = Map(6 -> {var d6 = new Dado; d6.limite_(6); d6},
-                                            10 -> {var d6 = new Dado; d6.limite_(10); d6},
-                                            50 -> {var d6 = new Dado; d6.limite_(50); d6},
-                                            100 -> {var d6 = new Dado; d6.limite_(100); d6})
-    val elementos       : Map[String, Int] = Map("Agua" -> 0, "Aire" -> 0, "Fuego" -> 0, "Luz" -> 0, "Oscuridad" -> 0,"Tierra" -> 0)
-    val tipos           : List[String] = List("Arco", "Escudo", "Espada", "Hacha", "Talisman", "Varita", "Pocion")
+    var dados           : Map[Int, Dado] = Map(6 -> {var d6 = new Dado; d6.limite_(6); d6},
+                                            10 -> {var d10 = new Dado; d10.limite_(10); d10},
+                                            50 -> {var d50 = new Dado; d50.limite_(50); d50},
+                                            100 -> {var d100 = new Dado; d100.limite_(100); d100})
+    val elementos       : Map[String, Int] = Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 0, "Fuego" -> 0,"Agua" -> 0)
+    var tipos           : List[String] = List("Arco", "Escudo", "Espada", "Hacha", "Talisman", "Varita", "Pocion")
     var nCampeonesIds   : Int = 0
     var nEnemigosIds    : Int = 0
 
+    var espada =  new Item()
+    espada.name = "horricruz"
+    espada.tipo = "Espada"
+    espada.atributos = Map("Agua"-> 10, "Fuego" -> 10 , "Aire" -> 10, "Tierra"-> 10, "Luz"-> 10 ,"Oscuridad"-> 10)
+    espada.resistencias = Map("Agua"-> 0, "Fuego" -> 0 , "Aire" -> 0 , "Tierra"-> 0, "Luz"-> 0 ,"Oscuridad"-> 0)
+
+    var escudo = new Item()
+    escudo.name = "Puerta Helada"
+    escudo.tipo = "Escudo"
+    escudo.atributos = Map("Oscuridad" -> 2, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 0, "Fuego" -> 0,"Agua" -> 0)
+    escudo.resistencias = Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 0, "Fuego" -> 0,"Agua" -> 10)
+
+    var pocion = new Item()
+    pocion.name = "Regen"
+    pocion.tipo = "Pocion"
+    pocion.atributos = Map("Vida" -> 50)
+
     var e0 = new Enemigo()
-    e0.id_(nEnemigosIds)
-    nEnemigosIds += 1
     e0.raza_("Goblin")
-    e0.nivel_(10)
-    e0.vidaT_(100)
-    e0.vidaAct_(e0.vidaT)
-    e0.atributo_("Fuego")
-    var resist = elementos
-    resist -= "Fuego"
-    resist += ("Fuego" -> 10)
-    e0.resistencias_(resist)
-    e0.lore_("I'm the Goblin")
-    var e1 = e0.cloning()
-    e1.id_(nEnemigosIds)
-    nEnemigosIds += 1
+    e0.atributo_("Agua")
+    e0.resistencias_(Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 0, "Fuego" -> 0,"Agua" -> 10))
+    e0.vidaT_(50)
+    e0.vidaAct_(50)
+    e0.valAtributo_(10)
 
     var c0 = new Elfo()
-    c0.id_(nCampeonesIds)
-    nCampeonesIds += 1
-    c0.raza_("Jotun")
-    c0.nivel_(10)
-    c0.atributos_(Map("Agua" -> 1, "Aire" -> 2, "Fuego" -> 3, "Tierra" -> 4))
-    c0.resistencias_(Map("Agua" -> 5, "Aire" -> 6, "Fuego" -> 7, "Tierra" -> 8))
-    c0.inventario_(List({var x = new Item; x.name = "Filo de Infinito"; x}))
-    c0.lore_("Im the Elfo")
-    c0.experiencia_(100)
-    c0.vidaAct_(1500)
-    c0.vidaT_(1499)
+    c0.name_("Legolas")
+    c0.raza_("Elfo")
+    c0.atributos_(Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 10, "Fuego" -> 0,"Agua" -> 0))
+    c0.resistencias_(elementos)
+    c0.inventario_(List())
+    c0.vidaT_(100)
+    c0.vidaAct_(40)
 
-    var l0 = new Lugar()
-    l0.name_("Ruinas del triunfo")
-    l0.nivel_(1)
+    var c1 = new Valquiria()
+    c1.name_("Kayle")
+    c1.raza_("Valquiria")
+    c1.atributos_(elementos)
+    c1.resistencias_(elementos)
+    c1.inventario_(List())
+    c1.vidaT_(200)
+    c1.vidaAct_(50)
 
-    // l0.entrarCampeon(c0)
-    // println(l0.campeones)
-    // l0.salirCampeon(0)
-    // println(l0.campeones)
-}
+    var partida = new PartidaHistoria()
+    partida.jugadores = List(c0, c1)
+    partida.enemigos = List(e0)
+    partida.dados = List(dados(6), dados(10), dados(50), dados(100))
+    partida.items = List(escudo, espada, pocion)
+    partida.darItem()
+    partida.iniciarBatalla()
+    c1.info()
+} 

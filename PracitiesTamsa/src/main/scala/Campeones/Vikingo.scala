@@ -67,15 +67,15 @@ class Vikingo() extends Campeon{
             }
         }
         else if(i.tipo == "Escudo"){
-            tempResist += ("Agua"       -> (this._resistencias("Agua")       + i.resistencias("Agua") + ((i.atributos("Agua")*15)/100)))
-            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      + i.resistencias("Fuego") + ((i.atributos("Fuego")*15)/100)))
-            tempResist += ("Aire"        -> (this._resistencias("Aire")       + i.resistencias("Aire") + ((i.atributos("Aire")*15)/100)))
-            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     + i.resistencias("Tierra")+ ((i.atributos("Tierra")*50)/100)))
-            tempResist += ("Luz"         -> (this._resistencias("Luz")        + i.resistencias("Luz") + ((i.atributos("Luz")*15)/100)))
-            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad") + ((i.atributos("Aire")*15)/100)))
+            tempResist += ("Agua"       -> (this._resistencias("Agua")       + i.resistencias("Agua") + ((i.resistencias("Agua")*15)/100)))
+            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      + i.resistencias("Fuego") + ((i.resistencias("Fuego")*15)/100)))
+            tempResist += ("Aire"        -> (this._resistencias("Aire")       + i.resistencias("Aire") + ((i.resistencias("Aire")*15)/100)))
+            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     + i.resistencias("Tierra")+ ((i.resistencias("Tierra")*50)/100)))
+            tempResist += ("Luz"         -> (this._resistencias("Luz")        + i.resistencias("Luz") + ((i.resistencias("Luz")*15)/100)))
+            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad") + ((i.resistencias("Aire")*15)/100)))
             this.resistencias_(tempResist)
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire")))
@@ -117,15 +117,15 @@ class Vikingo() extends Campeon{
             }
         }
         else if(i.tipo == "Escudo"){
-            tempResist += ("Agua"       -> (this._resistencias("Agua")       - i.resistencias("Agua") - ((i.atributos("Agua")*15)/100)))
-            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      - i.resistencias("Fuego") - ((i.atributos("Fuego")*15)/100)))
-            tempResist += ("Aire"        -> (this._resistencias("Aire")       - i.resistencias("Aire") - ((i.atributos("Aire")*15)/100)))
-            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     - i.resistencias("Tierra")- ((i.atributos("Tierra")*50)/100)))
-            tempResist += ("Luz"         -> (this._resistencias("Luz")        - i.resistencias("Luz") - ((i.atributos("Luz")*15)/100)))
-            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad") - ((i.atributos("Aire")*15)/100)))
+            tempResist += ("Agua"       -> (this._resistencias("Agua")       - i.resistencias("Agua") - ((i.resistencias("Agua")*15)/100)))
+            tempResist += ("Fuego"        -> (this._resistencias("Fuego")      - i.resistencias("Fuego") - ((i.resistencias("Fuego")*15)/100)))
+            tempResist += ("Aire"        -> (this._resistencias("Aire")       - i.resistencias("Aire") - ((i.resistencias("Aire")*15)/100)))
+            tempResist += ("Tierra"      -> (this._resistencias("Tierra")     - i.resistencias("Tierra")- ((i.resistencias("Tierra")*50)/100)))
+            tempResist += ("Luz"         -> (this._resistencias("Luz")        - i.resistencias("Luz") - ((i.resistencias("Luz")*15)/100)))
+            tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad") - ((i.resistencias("Aire")*15)/100)))
             this.resistencias_(tempResist)
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire")))

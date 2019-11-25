@@ -70,7 +70,7 @@ abstract class Campeon(){
         var aux : List[Item] = tomarE(this.inventario,"Pocion")
         if( aux != Nil){
             var i : Int = 0
-            for( s <- aux ) { println("nombre " + s.name + " vida: " + s.atributos("Vida")); i += 1 }
+            for( s <- aux ) { println(i + " -> " + s.name + " +(" + s.atributos("Vida") + "Hp)"); i += 1 }
             var temp : Item = aux(readInt()) // pocion a tomar
             if(this._vidaAct + temp.atributos("Vida") > this.vidaT ){
                 this._vidaAct = this.vidaT
@@ -79,10 +79,10 @@ abstract class Campeon(){
                 this._vidaAct = this._vidaAct + temp.atributos("Vida") 
                 eliminarItem(temp)
             }
-            println("Sus puntos de vida actuales son: " + this.vidaAct)
+            println("Sus puntos de vida actuales son: " + this.vidaAct + "\n")
         }
         else{
-            println("No hay pociones")
+            println("No hay pociones" + "\n")
         }
     }
 

@@ -65,7 +65,7 @@ class Valquiria() extends Campeon{
             this.atributos_(tempStats)
         }
     
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire")))
@@ -99,7 +99,7 @@ class Valquiria() extends Campeon{
             this.atributos_(tempStats)
         }
     
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire")))
@@ -118,6 +118,4 @@ class Valquiria() extends Campeon{
         }
         _inventario = elimE( _inventario , i)
     }
-
-    
 }

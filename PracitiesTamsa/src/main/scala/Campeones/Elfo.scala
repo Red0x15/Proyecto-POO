@@ -66,7 +66,7 @@ class Elfo() extends Campeon{
                 this.resistencias_(tempResist)
             }
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire")))
@@ -108,7 +108,7 @@ class Elfo() extends Campeon{
                 this.resistencias_(tempResist)
             }
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire")))

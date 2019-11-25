@@ -72,7 +72,7 @@ class Jotun() extends Campeon{
             tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad") + ((i.atributos("Aire")*25)/100)))
             this.resistencias_(tempResist)
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       + i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      + i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       + i.atributos("Aire")))
@@ -113,7 +113,7 @@ class Jotun() extends Campeon{
             tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad") - ((i.atributos("Aire")*25)/100)))
             this.resistencias_(tempResist)
         }
-        else{
+        else if(i.tipo != "Pocion") {
             tempStats += ("Agua"       -> (this.atributos("Agua")       - i.atributos("Agua")))
             tempStats += ("Fuego"        -> (this.atributos("Fuego")      - i.atributos("Fuego")))
             tempStats += ("Aire"        -> (this.atributos("Aire")       - i.atributos("Aire")))
