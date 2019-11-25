@@ -91,15 +91,18 @@ abstract class Campeon(){
 
     // Metodo para pruebas
     def info() : Unit = {
-        println("Id " + id + "\n" +
-                "Raza " + raza + "\n" +
-                "Nivel " + nivel + "\n" +
-                "Atributos " + atributos + "\n" +
-                "Resistencias " + resistencias + "\n" +
-                "Inventario " + inventario + "\n" +
-                "Lore " + lore + "\n" +
-                "Experiencia " + experiencia + "\n" +
-                "Vida Total " + vidaT + "\n" +
-                "Vida Actual " + vidaAct + "\n")
+        println("Raza " + _raza + "\n" +
+                "Nivel " + _nivel + "\n" +
+                "Vida Total " + _vidaT + "\n" +
+                "Vida Actual " + _vidaAct + "\n" +
+                "Experiencia " + _experiencia + "\n" +
+                "Lore " + _lore + "\n"
+        )
+        println("Atributos:")
+        for ((k, v) <- _atributos) {println(k + " -> " + v)}
+        println("Resistencias:")
+        for ((k, v) <- _resistencias) {println(k + " -> " + v)}
+        println("Items:")
+        for (i <- _inventario) {println(i.name) + " (" + i.tipo + ")"}
     }
 }

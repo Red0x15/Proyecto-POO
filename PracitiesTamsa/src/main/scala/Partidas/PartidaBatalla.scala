@@ -19,7 +19,6 @@ class PartidaBatalla() {
         dados(readInt()).lanzar()
     }
 
-
     def pelear() : Unit = {
         var finish  : Boolean = false
         var gm      : Boolean = true
@@ -48,7 +47,7 @@ class PartidaBatalla() {
                             var jugador : Campeon = jugadoresVivos(readInt())
                             println("\n")
                             var res : Int = lanzarDado()
-                            println("La suerte de odin fue dada... " + res + "\n")
+                            println("La suerte de Odin fue dada... " + res + "\n")
                             if (res > jugador.resistencias(enemigo.atributo))
                                 jugador.vidaAct_(jugador.vidaAct - enemigo.valAtributo)
                                 if (jugador.vidaAct < 0) jugador.vidaAct_(0)

@@ -15,6 +15,11 @@ object menuPrincipal extends App {
     var nCampeonesIds   : Int = 0
     var nEnemigosIds    : Int = 0
 
+    var lugares         : List[Lugar] = List({var l0 = new Lugar; l0.name_("Tattoine"); l0},
+                                                {var l1 = new Lugar; l1.name_("Mogador"); l1},
+                                                {var l2 = new Lugar; l2.name_("Lorien"); l2}
+                                                )
+
     var espada =  new Item()
     espada.name = "horricruz"
     espada.tipo = "Espada"
@@ -63,7 +68,7 @@ object menuPrincipal extends App {
     partida.enemigos = List(e0)
     partida.dados = List(dados(6), dados(10), dados(50), dados(100))
     partida.items = List(escudo, espada, pocion)
-    partida.darItem()
-    partida.iniciarBatalla()
-    c1.info()
+    partida.lugares = lugares
+    partida.jugar()
+    println(partida.terminada)
 } 

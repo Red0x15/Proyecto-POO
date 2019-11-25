@@ -26,6 +26,13 @@ class PartidaHistoria() {
         jugadores(readInt())
     }
 
+    private def lanzarDado() : Int = {
+        println("Seleccione el dado a lanzar: ")
+        var counter : Int = 0
+        for (i <- dados) {println(counter + " -> Dado de " + i.limite + " caras"); counter += 1}
+        dados(readInt()).lanzar()
+    }
+
     def moverJugador() : Unit = {
         var jugador = seleccionarJugador()
         println("\n")
@@ -34,7 +41,7 @@ class PartidaHistoria() {
         println("Selecione el lugar destino del jugador: ")
         var lugar = lugares(readInt()).name
         jugador.ubicacion_(lugar)
-        println("Movimiento exitoso!\n")
+        println("Ahora " + jugador.name + " esta en " + lugar +"!\n")
     }
 
     def usarPocion() : Unit = {
@@ -83,16 +90,78 @@ class PartidaHistoria() {
         }
     }
 
-    def iniciarBatalla() : Unit = {
-        var batalla : PartidaBatalla = new PartidaBatalla
-        batalla.dados = dados
-        batalla.enemigos = enemigos
-        batalla.jugadores = jugadores
-        batalla.pelear()
-        println("Una epica batalla")
+    def jugadorInfo() : Unit = {
+        var counter : Int = 0
+        for(i <- jugadores) {println(counter + " -> " + i.name); counter += 1}
+        jugadores(readInt()).info()
     }
 
-    // def jugar
-    // def grabar
-    // def terminar
+    def iniciarBatalla() : Unit = {
+        var batalla : PartidaBatalla = new PartidaBatalla
+        println("Seleccione el lugar de la batalla:")
+        var counter : Int = 0
+        for (i <- lugares) {println(counter + " -> " + i.name); counter += 1}
+        var lugar : String = lugares(readInt()).name
+        var jugadoresEnLugar : List[Campeon] = jugadores.filter(_.ubicacion == lugar)
+        var enemigosBatalla : List[Enemigo] = List()
+        var jugadoresBatalla : Set[Campeon] = Set()
+        
+        if (jugadoresEnLugar != Nil) {
+            counter = 0
+            println("Ingrese el numero del molde de enemigo a agregar a la batalla (-1 para terminar):")
+            for (i <- enemigos) {println(counter + " -> " + i.raza); counter += 1}
+            var op : Int = readInt()
+            while(op != -1) {
+                enemigosBatalla = enemigosBatalla ::: List(enemigos(op).cloning())
+                op = readInt()
+            }
+
+            counter = 0
+            println("Ingrese el numero del jugador a agregar a la batalla (-1 para terminar):")
+            for (i <- jugadoresEnLugar) {println(counter + " -> " + i.name); counter += 1}
+            op = readInt()
+            while(op != -1) {
+                jugadoresBatalla += jugadoresEnLugar(op)
+                op = readInt()
+            }
+
+            if (jugadoresBatalla.toList != Nil) {
+                batalla.dados = dados
+                batalla.enemigos = enemigosBatalla
+                batalla.jugadores = jugadoresBatalla.toList
+                batalla.pelear()
+                println("Una epica batalla termina...\n")
+            }
+            else println("Una batalla debe tener almenos un campeon para actuar\n")
+        }
+        else println("No se encuentran jugadores para pelear en este lugar :(\n")
+    }
+
+    def jugar() : Unit = {
+        var finish : Boolean = false
+        while (finish != true) {
+            println("Opciones:\n" +
+                    "0 -> Lanzar dados\n" + 
+                    "1 -> Mover un jugador\n" + 
+                    "2 -> Dar un item a un jugador\n" + 
+                    "3 -> Usar una pocion\n" +
+                    "4 -> Iniciar un tradeo\n" +
+                    "5 -> Iniciar una batalla\n" +
+                    "6 -> Ver informacion de un jugador\n" +
+                    "7 -> Guardar y salir\n" +
+                    "8 -> Terminar Partida\n")
+            var op : Int = readInt()
+            op match {
+                case 0 => println("La suerte de Odin fue dada... " + lanzarDado() + "\n")
+                case 1 => moverJugador()
+                case 2 => darItem()
+                case 3 => usarPocion()
+                case 4 => tradeo()
+                case 5 => iniciarBatalla()
+                case 6 => {println("\n"); jugadorInfo(); println("\n");}
+                case 7 => finish = true
+                case 8 => {finish = true; terminada = true; println("Una historia epica termina...\n")}
+            }
+        }
+    }
 }
