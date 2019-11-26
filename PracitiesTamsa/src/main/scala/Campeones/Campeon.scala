@@ -36,12 +36,12 @@ abstract class Campeon(){
     def nivel_( i : Int ) = {if (i == 0) _nivel = 1 else _nivel = i}
     def experiencia_( d : Int ) = _experiencia = d
     def ubicacion_( s : String ) = _ubicacion = s
-    def vidaT_ ( i : Int) = _vidaT = i
-    def vidaAct_ ( i : Int) = _vidaAct = i
-    def atributos_ ( m : Map[String,Int] ) = _atributos = m
-    def resistencias_ ( m : Map[String,Int] ) = _resistencias = m
-    def inventario_ ( i : List[Item] ) = _inventario = i 
-    def lore_ ( l : String) = _lore = l
+    def vidaT_( i : Int) = _vidaT = i
+    def vidaAct_( i : Int) = _vidaAct = i
+    def atributos_( m : Map[String,Int] ) = _atributos = m
+    def resistencias_( m : Map[String,Int] ) = _resistencias = m
+    def inventario_( i : List[Item] ) = _inventario = i 
+    def lore_( l : String) = _lore = l
 
     // Funciones
     protected def tomarE ( a : List[Item] , i : String) : List[Item] ={
@@ -105,4 +105,7 @@ abstract class Campeon(){
         println("Items:")
         for (i <- _inventario) {println(i.name) + " (" + i.tipo + ")"}
     }
+
+    // IMPORTANTISIMO
+    def cloning() : Campeon
 }

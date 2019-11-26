@@ -25,7 +25,7 @@ class PartidaBatalla() {
         var turno   : Int = 0
         while(finish != true) {
             if (gm != false) {
-                println("Tunrno del GM\nSeleccione una accion:\n" + 
+                println("Turno del GM\nSeleccione una accion:\n" + 
                         "0 -> Atacar\n" +
                         "1 -> Revivir Jugador\n" +
                         "2 -> Terminar partida\n")
@@ -123,6 +123,10 @@ class PartidaBatalla() {
                             var enemigo : Enemigo = vivos(readInt())
                             println("\n")
                             println("Ingrese el codigo del ataque a realizar (1-4):")
+                            var x : (String, Int) = jugador.ataque1(); println(x._1 + " " + x._2 + "\n")
+                            x = jugador.ataque2(); println(x._1 + " " + x._2 + "\n")
+                            x = jugador.ataque3(); println(x._1 + " " + x._2 + "\n")
+                            x = jugador.ataque4(); println(x._1 + " " + x._2 + "\n")
                             var ataque : (String, Int) = ("", 0)
                             var opA : Int = readInt()
                             opA match {

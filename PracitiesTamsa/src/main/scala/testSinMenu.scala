@@ -5,7 +5,7 @@ import Lugares._
 import Partidas._
 import Dados._
 
-object menuPrincipal extends App {
+object testSinMenu extends App {
     var dados           : Map[Int, Dado] = Map(6 -> {var d6 = new Dado; d6.limite_(6); d6},
                                             10 -> {var d10 = new Dado; d10.limite_(10); d10},
                                             50 -> {var d50 = new Dado; d50.limite_(50); d50},

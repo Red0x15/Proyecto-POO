@@ -37,15 +37,14 @@ class Enemigo {
 
     // Funcion de prueba
     def info() : Unit = {
-        println(
-            "Id " +  id + "\n" +
-            "Raza " + raza + "\n" +
-            "Nivel " + nivel + "\n" +
-            "Vida Total " + vidaT + "\n" +
-            "Vida Actual " + vidaAct + "\n" +
-            "Atributo" + atributo + "\n" +
-            "Resistencias" + resistencias + "\n" +
-            "Lore" + lore + "\n")
+        println("Id " +  id + "\n" +
+                "Raza " + raza + "\n" +
+                "Nivel " + nivel + "\n" +
+                "Vida Total " + vidaT + "\n" +
+                "Vida Actual " + vidaAct + "\n" +
+                "Lore" + lore + "\n" +
+                "Atributo " + atributo)
+        for ((k, v) <- resistencias) {println(k + " -> " + v)}
     }
 
     // Funciones

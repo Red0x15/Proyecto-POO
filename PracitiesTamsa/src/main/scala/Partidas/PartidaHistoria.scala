@@ -10,6 +10,7 @@ class PartidaHistoria() {
     // Atributos
     var id          : Int = -1
     var gm          : String = ""
+    var name        : String = ""
     private var _contrasena : String = ""
     var dados       : List[Dado] = List()
     var items       : List[Item] = List()
