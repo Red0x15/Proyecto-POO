@@ -10,13 +10,19 @@ class PartidaHistoria() {
     // Atributos
     var id          : Int = -1
     var gm          : String = ""
+    private var _contrasena : String = ""
     var dados       : List[Dado] = List()
     var items       : List[Item] = List()
     var lugares     : List[Lugar] = List()
     var enemigos    : List[Enemigo] = List()
-    var nJugadores  : Int = 0
     var jugadores   : List[Campeon] = List()
     var terminada   : Boolean = false
+    private var _victoria    : Boolean = false
+
+    def victoria = _victoria
+    // Funciones contrasena
+    def contrasena_(nContrasena : String) {_contrasena = nContrasena}
+    def ingresar(intento : String) : Boolean = {intento == _contrasena}
 
     // Funciones
     private def seleccionarJugador() : Campeon = {
@@ -159,8 +165,12 @@ class PartidaHistoria() {
                 case 4 => tradeo()
                 case 5 => iniciarBatalla()
                 case 6 => {println("\n"); jugadorInfo(); println("\n");}
-                case 7 => finish = true
-                case 8 => {finish = true; terminada = true; println("Una historia epica termina...\n")}
+                case 7 => {finish = true; println("Continuara...\n")}
+                case 8 => {
+                    println("Los jugadores vencieron al GM? (Si / No)")
+                    if (readLine().toLowerCase == "si") _victoria = true
+                    finish = true; terminada = true; println("Una historia epica termina...\n")
+                }
             }
         }
     }

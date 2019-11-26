@@ -38,7 +38,7 @@ class PartidaBatalla() {
                         if (enemigosVivos != Nil && jugadoresVivos != Nil){
                             var counter : Int = 0
                             println("Seleccione un enemigo:")
-                            for (i <- enemigosVivos) {println(counter + " -> " + i.raza); counter += 1}
+                            for (i <- enemigosVivos) {println(counter + " -> " + i.raza + " " + i.vidaAct); counter += 1}
                             var enemigo : Enemigo = enemigosVivos(readInt())
                             println("\n")
                             counter = 0
@@ -72,7 +72,36 @@ class PartidaBatalla() {
                         }
                         else println("No hay campeones muertos para revivir!\n")
                     }
-                    case _ => finish = true
+                    case _ => {
+                                finish = true
+                                println("Considera que los jugadores ganaron la partida? (Si / No)")
+                                if (readLine().toLowerCase == "si") {
+                                    var bXp : Int = 0
+                                    for (i <- enemigos) {bXp += i.nivel}
+                                    for (i <- jugadores) {
+                                        i.vidaT_(i.vidaT + 20)
+                                        i.vidaAct_(i.vidaAct + 20)
+                                        var nXp : Int = (i.experiencia + bXp)
+                                        i.experiencia_(nXp % (i.nivel * 20))
+                                        var ups : Int = (i.nivel / nXp)
+                                        for (c <- jugadores) {
+                                            for ((a, v) <- c.atributos) {
+                                                var temp : Int = v + 1
+                                                c.atributos_(c.atributos - a)
+                                                c.atributos_(c.atributos + (a -> temp))
+                                            }
+                                            for ((r, v) <- c.resistencias) {
+                                                var temp : Int = v + 1
+                                                c.resistencias_(c.resistencias - r)
+                                                c.resistencias_(c.resistencias + (r -> temp))
+                                            }
+                                        }
+                                        i.nivel_(i.nivel + ups)
+                                        println("Botin de XP!\n")
+                                    }
+                                }
+                                else println("No XP :(")
+                            }
                 }
                 gm = false
             }
@@ -90,8 +119,8 @@ class PartidaBatalla() {
                         if (vivos != Nil){
                             var counter : Int = 0
                             println("Seleccione un enemigo:")
-                            for (i <- enemigos) {println(counter + " -> " + i.raza); counter += 1}
-                            var enemigo : Enemigo = enemigos(readInt())
+                            for (i <- vivos) {println(counter + " -> " + i.raza); counter += 1}
+                            var enemigo : Enemigo = vivos(readInt())
                             println("\n")
                             println("Ingrese el codigo del ataque a realizar (1-4):")
                             var ataque : (String, Int) = ("", 0)

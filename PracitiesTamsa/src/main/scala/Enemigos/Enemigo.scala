@@ -27,7 +27,7 @@ class Enemigo {
     // Setters
     def id_(nId : Int) : Unit = {_id = nId}
     def raza_(nRaza : String) : Unit = {_raza = nRaza}
-    def nivel_(nNivel : Int) : Unit = {_nivel = nNivel}
+    def nivel_(nNivel : Int) : Unit = {{if (nNivel == 0) _nivel = 1 else _nivel = nNivel}}
     def vidaT_(nVidaT : Int) : Unit = {_vidaT = nVidaT}
     def vidaAct_(nVidaAct : Int) : Unit = {_vidaAct = nVidaAct}
     def atributo_(nAtributo : String) : Unit = {_atributo = nAtributo}

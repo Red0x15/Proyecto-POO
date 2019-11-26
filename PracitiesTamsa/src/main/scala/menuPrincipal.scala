@@ -38,6 +38,7 @@ object menuPrincipal extends App {
     pocion.atributos = Map("Vida" -> 50)
 
     var e0 = new Enemigo()
+    e0.nivel_(0)
     e0.raza_("Goblin")
     e0.atributo_("Agua")
     e0.resistencias_(Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 0, "Fuego" -> 0,"Agua" -> 10))
@@ -46,6 +47,7 @@ object menuPrincipal extends App {
     e0.valAtributo_(10)
 
     var c0 = new Elfo()
+    c0.nivel_(0)
     c0.name_("Legolas")
     c0.raza_("Elfo")
     c0.atributos_(Map("Oscuridad" -> 0, "Luz" -> 0, "Aire" -> 0, "Tierra" -> 10, "Fuego" -> 0,"Agua" -> 0))
@@ -55,6 +57,7 @@ object menuPrincipal extends App {
     c0.vidaAct_(40)
 
     var c1 = new Valquiria()
+    c1.nivel_(0)
     c1.name_("Kayle")
     c1.raza_("Valquiria")
     c1.atributos_(elementos)
@@ -70,5 +73,7 @@ object menuPrincipal extends App {
     partida.items = List(escudo, espada, pocion)
     partida.lugares = lugares
     partida.jugar()
-    println(partida.terminada)
+    println("La terminacion 1 -> " + partida.terminada)
+    partida.jugar()
+    println("La terminacion 2 -> " + partida.terminada)
 } 

@@ -7,7 +7,7 @@ abstract class Campeon(){
     protected var _name : String = _
     protected var _raza : String = _
     protected var _nivel : Int =_
-    protected var _experiencia : Double = _
+    protected var _experiencia : Int = _
     protected var _ubicacion : String = _
     protected var _vidaT : Int = _
     protected var _vidaAct : Int = _
@@ -33,8 +33,8 @@ abstract class Campeon(){
     def id_( i : Int ) = _id = i
     def name_( s : String ) = _name = s
     def raza_( s : String ) = _raza = s
-    def nivel_( i : Int ) = _nivel = i
-    def experiencia_( d : Double ) = _experiencia = d
+    def nivel_( i : Int ) = {if (i == 0) _nivel = 1 else _nivel = i}
+    def experiencia_( d : Int ) = _experiencia = d
     def ubicacion_( s : String ) = _ubicacion = s
     def vidaT_ ( i : Int) = _vidaT = i
     def vidaAct_ ( i : Int) = _vidaAct = i
