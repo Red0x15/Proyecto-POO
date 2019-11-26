@@ -79,11 +79,11 @@ class PartidaBatalla() {
                                     var bXp : Int = 0
                                     for (i <- enemigos) {bXp += i.nivel}
                                     for (i <- jugadores) {
-                                        i.vidaT_(i.vidaT + 20)
-                                        i.vidaAct_(i.vidaAct + 20)
                                         var nXp : Int = (i.experiencia + bXp)
                                         i.experiencia_(nXp % (i.nivel * 20))
-                                        var ups : Int = (i.nivel / nXp)
+                                        var ups : Int = (nXp / i.nivel)
+                                        i.vidaT_(i.vidaT + (20 * ups))
+                                        i.vidaAct_(i.vidaAct + (20 * ups))
                                         for (c <- jugadores) {
                                             for ((a, v) <- c.atributos) {
                                                 var temp : Int = v + 1

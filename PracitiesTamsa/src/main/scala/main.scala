@@ -117,19 +117,19 @@ object prueba1 extends App {
     }
 
     // // traer del txt los datos del usuario
-    // private def cargarUsuarios() : List[Usuario] ={}
+    // private def cargarUsuarios() : Set[Usuario] ={}
 
-    // private def cargarItem() : List[Item]={}
+    // private def cargarItem() : Set[Item]={}
 
-    // private def cargarEnemigo() : List[Enemigo]={}
+    // private def cargarEnemigo() : Set[Enemigo]={}
 
-    // private def cargarLugar() : List[Lugar]={}
+    // private def cargarLugar() : Set[Lugar]={}
 
-    // private def cargarCampeon() : List[Campeon]={}
+    // private def cargarCampeon() : Set[Campeon]={}
 
-    // private def cargarPartida() : List[PartidaHistoria]={}
+    // private def cargarPartida() : Set[PartidaHistoria]={}
 
-    // private def cargarDado() : List[Dado] ={}
+    // private def cargarDado() : Set[Dado] ={}
 
     private def crearItem() : Unit = {
         var aux : Item = new Item()
@@ -261,7 +261,7 @@ object prueba1 extends App {
         aux.resistencias_(tempResist)
         println("Ingrese el lore del campeon: ")
         aux.lore_(readLine()) 
-        aux.inventario_(Nil)
+        aux.inventario_(Set())
         return aux
     }
 
@@ -282,44 +282,44 @@ object prueba1 extends App {
 
     private def crearPartida(a:Usuario) : Unit = {
         var aux : PartidaHistoria = new PartidaHistoria()
-        aux.id= nPartidasIds
-        nPartidasIds+=1
+        aux.id = nPartidasIds
+        nPartidasIds += 1
         aux.gm = a.nombre
         println("Ingrese la contraseña de su partida")
         aux.contrasena_(readLine())
         println("Dados para su partida:")
-        var d : List[Dado] = Nil
+        var d : Set[Dado] = Set()
         for( i <- dados ){
             println("Desea incluir el dado de " + i.limite +" caras?(1-Si,2-No)")
             if(readInt() == 1){
-                d= i::d
+                d += i
             }
         }
         aux.dados = d
         println("Items para su partida:")
-        var it : List[Item] = Nil
+        var it : Set[Item] = Set()
         for( i <- items ){
             println("Desea incluir el item"); i.info(); println(" ?(1-Si,2-No)")
             if(readInt() == 1){
-               it= i::it
+               it += i
             }
         }
         aux.items = it
         println("Lugares para su partida:")
-        var l : List[Lugar] = Nil
+        var l : Set[Lugar] = Set()
         for( i <- lugares ){
             println("Desea incluir el lugar " + i.name + " de nivel " + i.nivel +" ?(1-Si,2-No)")
             if(readInt() == 1){
-                l= i::l
+                l += i
             }
         }
         aux.lugares = l
         println("enemigos para su partida:")
-        var e : List[Enemigo] = Nil
+        var e : Set[Enemigo] = Set()
         for((k, v) <- enemigos){
             println("Desea incluir el enemigo\n"); v.info(); println(" ?(1-Si,2-No)")
             if(readInt() == 1){
-               e = v.cloning()::e
+               e += v.cloning()
             }
         }
         aux.enemigos = e
@@ -338,7 +338,7 @@ object prueba1 extends App {
                 l += a.id
                 lobby-= aux
                 lobby+= (aux -> l )
-                partidas(aux).jugadores = crearCampeon(a) :: partidas(aux).jugadores
+                partidas(aux).jugadores += crearCampeon(a)
             }
             else{
                 println("No eres digno para tomar este camino")
@@ -364,7 +364,7 @@ object prueba1 extends App {
                             for(i <- lobby(aux) ){
                                 var v = usuarios(i).historial("Victorias")
                                 var w = usuarios(i).historial
-                                v = tmp :: v 
+                                v += tmp
                                 w -= "Victorias"
                                 w += ("Victorias" -> v) 
                                 usuarios(i).historial_(w)
@@ -375,7 +375,7 @@ object prueba1 extends App {
                             for(i <- lobby(aux)  ){
                                 var v = usuarios(i).historial("Derrotas")
                                 var w = usuarios(i).historial
-                                v= tmp :: v 
+                                v += tmp
                                 w -= "Derrotas"
                                 w += ("Derrotas" -> v) 
                                 usuarios(i).historial_(w)

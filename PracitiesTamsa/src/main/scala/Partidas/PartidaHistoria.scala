@@ -12,11 +12,11 @@ class PartidaHistoria() {
     var gm          : String = ""
     var name        : String = ""
     private var _contrasena : String = ""
-    var dados       : List[Dado] = List()
-    var items       : List[Item] = List()
-    var lugares     : List[Lugar] = List()
-    var enemigos    : List[Enemigo] = List()
-    var jugadores   : List[Campeon] = List()
+    var dados       : Set[Dado]    = Set()
+    var items       : Set[Item]    = Set()
+    var lugares     : Set[Lugar]   = Set()
+    var enemigos    : Set[Enemigo] = Set()
+    var jugadores   : Set[Campeon] = Set()
     var terminada   : Boolean = false
     private var _victoria    : Boolean = false
 
@@ -30,14 +30,14 @@ class PartidaHistoria() {
         var counter = 0
         println("Selecione el jugador: ")
         for (i <- jugadores) {println(counter + " -> " + i.name); counter += 1}
-        jugadores(readInt())
+        jugadores.toList(readInt())
     }
 
     private def lanzarDado() : Int = {
         println("Seleccione el dado a lanzar: ")
         var counter : Int = 0
         for (i <- dados) {println(counter + " -> Dado de " + i.limite + " caras"); counter += 1}
-        dados(readInt()).lanzar()
+        dados.toList(readInt()).lanzar()
     }
 
     def moverJugador() : Unit = {
@@ -46,7 +46,7 @@ class PartidaHistoria() {
         var counter = 0
         for (i <- lugares) {println(counter + " -> " + i.name); counter += 1}
         println("Selecione el lugar destino del jugador: ")
-        var lugar = lugares(readInt()).name
+        var lugar = lugares.toList(readInt()).name
         jugador.ubicacion_(lugar)
         println("Ahora " + jugador.name + " esta en " + lugar +"!\n")
     }
@@ -64,7 +64,7 @@ class PartidaHistoria() {
         var counter = 0
         println("Seleccione el item a dar:")
         for (i <- items) {println(counter + " -> " + i.name); counter += 1}
-        var item = items(readInt())
+        var item = items.toList(readInt())
         jugador.agregarItem(item)
         println("Adquisicion de item completada!\n")
     }
@@ -74,16 +74,16 @@ class PartidaHistoria() {
         println("\n")
         var jugador2 = seleccionarJugador()
         println("\n")
-        if (jugador1.inventario != Nil && jugador2.inventario != Nil) {
+        if (jugador1.inventario != Set() && jugador2.inventario != Set()) {
             var counter = 0
             println("Seleccione el item del 1er jugador: ")
             for (i <- jugador1.inventario) {println(counter + " -> " + i.name); counter += 1}
-            var item1 = jugador1.inventario(readInt())
+            var item1 = jugador1.inventario.toList(readInt())
             println("\n")
             counter = 0
             println("Seleccione el item del 2o jugador: ")
             for (i <- jugador2.inventario) {println(counter + " -> " + i.name); counter += 1}
-            var item2 = jugador2.inventario(readInt())
+            var item2 = jugador2.inventario.toList(readInt())
             println("\n")
 
             jugador1.eliminarItem(item1)
@@ -100,7 +100,7 @@ class PartidaHistoria() {
     def jugadorInfo() : Unit = {
         var counter : Int = 0
         for(i <- jugadores) {println(counter + " -> " + i.name); counter += 1}
-        jugadores(readInt()).info()
+        jugadores.toList(readInt()).info()
     }
 
     def iniciarBatalla() : Unit = {
@@ -108,8 +108,8 @@ class PartidaHistoria() {
         println("Seleccione el lugar de la batalla:")
         var counter : Int = 0
         for (i <- lugares) {println(counter + " -> " + i.name); counter += 1}
-        var lugar : String = lugares(readInt()).name
-        var jugadoresEnLugar : List[Campeon] = jugadores.filter(_.ubicacion == lugar)
+        var lugar : String = lugares.toList(readInt()).name
+        var jugadoresEnLugar : List[Campeon] = jugadores.toList.filter(_.ubicacion == lugar)
         var enemigosBatalla : List[Enemigo] = List()
         var jugadoresBatalla : Set[Campeon] = Set()
         
@@ -119,7 +119,7 @@ class PartidaHistoria() {
             for (i <- enemigos) {println(counter + " -> " + i.raza); counter += 1}
             var op : Int = readInt()
             while(op != -1) {
-                enemigosBatalla = enemigosBatalla ::: List(enemigos(op).cloning())
+                enemigosBatalla = enemigosBatalla ::: List(enemigos.toList(op).cloning())
                 op = readInt()
             }
 
@@ -132,8 +132,8 @@ class PartidaHistoria() {
                 op = readInt()
             }
 
-            if (jugadoresBatalla.toList != Nil) {
-                batalla.dados = dados
+            if (jugadoresBatalla != Set()) {
+                batalla.dados = dados.toList
                 batalla.enemigos = enemigosBatalla
                 batalla.jugadores = jugadoresBatalla.toList
                 batalla.pelear()

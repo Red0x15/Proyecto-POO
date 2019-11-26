@@ -6,7 +6,7 @@ class Usuario(){
     private var _nombre : String = ""
     private var _id : Int = -1
     private var _contrasena : String = ""
-    private var _historial : Map[String, List[PartidaHistoria]] = Map("Victorias" -> Nil , "Derrotas" -> Nil)
+    private var _historial : Map[String, Set[PartidaHistoria]] = Map("Victorias" -> Set() , "Derrotas" -> Set())
 
     // get & Set
     def nombre = _nombre
@@ -15,7 +15,7 @@ class Usuario(){
     def historial=_historial
 
     def nombre_( s : String ) = _nombre = s
-    def historial_ ( m : Map[String, List[PartidaHistoria]] ) = _historial = m
+    def historial_ ( m : Map[String, Set[PartidaHistoria]] ) = _historial = m
     def id_ ( i : Int) = _id = i
     def contrasena_( s : String) = _contrasena = s
 

@@ -13,7 +13,7 @@ abstract class Campeon(){
     protected var _vidaAct : Int = _
     protected var _atributos : Map[String,Int] = Map()
     protected var _resistencias : Map[String,Int] = Map()
-    protected var _inventario : List[Item] =_
+    protected var _inventario : Set[Item] =_
     protected var _lore: String = _
 
     // getter y setter
@@ -40,7 +40,7 @@ abstract class Campeon(){
     def vidaAct_( i : Int) = _vidaAct = i
     def atributos_( m : Map[String,Int] ) = _atributos = m
     def resistencias_( m : Map[String,Int] ) = _resistencias = m
-    def inventario_( i : List[Item] ) = _inventario = i 
+    def inventario_( i : Set[Item] ) = _inventario = i 
     def lore_( l : String) = _lore = l
 
     // Funciones
@@ -67,7 +67,7 @@ abstract class Campeon(){
     def eliminarItem(i : Item) : Unit
 
     def tomarPocion() : Unit ={
-        var aux : List[Item] = tomarE(this.inventario,"Pocion")
+        var aux : List[Item] = tomarE(this.inventario.toList,"Pocion")
         if( aux != Nil){
             var i : Int = 0
             for( s <- aux ) { println(i + " -> " + s.name + " +(" + s.atributos("Vida") + "Hp)"); i += 1 }

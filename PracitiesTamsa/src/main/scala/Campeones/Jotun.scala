@@ -89,7 +89,7 @@ class Jotun() extends Campeon{
             tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  + i.resistencias("Oscuridad")))
             this.resistencias_(tempResist)
         }
-        _inventario = i::_inventario
+        _inventario += i
     }
 
     def eliminarItem( i : Item ) : Unit ={
@@ -130,6 +130,6 @@ class Jotun() extends Campeon{
             tempResist += ("Oscuridad"   -> (this._resistencias("Oscuridad")  - i.resistencias("Oscuridad")))
             this.resistencias_(tempResist)
         }
-        _inventario = elimE( _inventario , i)
+        _inventario = elimE(_inventario.toList, i).toSet
     }
 }
