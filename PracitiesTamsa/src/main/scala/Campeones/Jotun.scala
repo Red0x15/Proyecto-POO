@@ -2,7 +2,7 @@ package Campeones
 
 import Items._
 
-class Jotun() extends Campeon{
+class Jotun() extends Campeon with Serializable{
  
     def cloning() : Campeon ={
         var temp : Jotun = new Jotun()

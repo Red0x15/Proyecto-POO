@@ -3,7 +3,7 @@ package Lugares
 import Campeones._
 import Enemigos._
 
-class Lugar() {
+class Lugar() extends Serializable{
     // Atributos
     protected var _name         : String = ""
     protected var _nivel        : Int = 0

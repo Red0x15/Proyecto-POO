@@ -6,7 +6,7 @@ import Lugares._
 import Dados._
 import scala.io.StdIn
 
-class PartidaBatalla() {
+class PartidaBatalla() extends Serializable{
     var dados       : List[Dado] = List()
     var jugadores   : List[Campeon] = List()
     var enemigos    : List[Enemigo] = List()

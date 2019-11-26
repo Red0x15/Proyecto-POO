@@ -2,7 +2,7 @@ package Campeones
 import Items._
 
 
-class Vikingo() extends Campeon{
+class Vikingo() extends Campeon with Serializable{
     
     def cloning() : Campeon = {
         var temp : Vikingo = new Vikingo()

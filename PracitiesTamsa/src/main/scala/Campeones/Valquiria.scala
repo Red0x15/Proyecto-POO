@@ -2,7 +2,7 @@ package Campeones
 import Items._
 
 
-class Valquiria() extends Campeon{
+class Valquiria() extends Campeon with Serializable{
    
     def cloning() : Campeon ={
         var temp : Valquiria = new Valquiria()

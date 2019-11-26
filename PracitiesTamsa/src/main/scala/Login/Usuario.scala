@@ -1,7 +1,7 @@
 package Login
 import Partidas._
 
-class Usuario(){
+class Usuario() extends Serializable{
     //atributos
     private var _nombre : String = ""
     private var _id : Int = -1

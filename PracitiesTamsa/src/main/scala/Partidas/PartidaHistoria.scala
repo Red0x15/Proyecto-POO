@@ -6,11 +6,12 @@ import Enemigos._
 import Lugares._
 import scala.io.StdIn
 
-class PartidaHistoria() {
+class PartidaHistoria() extends Serializable{
     // Atributos
     var id          : Int = -1
     var gm          : String = ""
     var name        : String = ""
+    var lore        : String = ""
     private var _contrasena : String = ""
     var dados       : Set[Dado]    = Set()
     var items       : Set[Item]    = Set()

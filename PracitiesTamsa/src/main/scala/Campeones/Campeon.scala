@@ -1,7 +1,7 @@
 package Campeones
 import Items._
 
-abstract class Campeon(){
+abstract class Campeon() extends Serializable{
     // atributos
     protected var _id : Int = _
     protected var _name : String = _

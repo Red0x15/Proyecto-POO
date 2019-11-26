@@ -1,6 +1,6 @@
 package Enemigos
 
-class Enemigo {
+class Enemigo extends Serializable{
     // Atributos
     protected var _id           : Int = -1
     protected var _raza         : String = ""

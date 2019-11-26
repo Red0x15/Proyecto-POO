@@ -3,7 +3,7 @@ import java.util.Calendar
 import scala.util.Random
 import scala.util.Try
 
-class Dado {
+class Dado extends Serializable{
     // Atributos
     protected var _limite : Int = 0
 

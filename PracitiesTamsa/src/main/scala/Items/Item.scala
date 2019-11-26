@@ -1,6 +1,6 @@
 package Items
 
-class Item {
+class Item extends Serializable{
     // Atributos
     var name            : String = ""
     var tipo            : String = ""
