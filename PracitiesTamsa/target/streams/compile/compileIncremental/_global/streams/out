@@ -1,1 +1,28 @@
-[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed:Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set(/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/testSinMenu.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/prueba1.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Campeones/Elfo.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Dados/Dado.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/prueba1$.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Lugares/Lugar.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Items/Item.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Campeones/Vikingo.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/testSinMenu$delayedInit$body.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Campeones/Campeon.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Partidas/PartidaHistoria.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Partidas/PartidaBatalla.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/prueba1$delayedInit$body.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/testSinMenu$.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Campeones/Valquiria.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Login/Usuario.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Enemigos/Enemigo.class, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes/Campeones/Jotun.class)[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set(/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/main.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Vikingo.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Campeon.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Items/Item.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Dados/Dado.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Enemigos/Enemigo.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Login/Usuario.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Jotun.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Elfo.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Campeones/Valquiria.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Partidas/PartidaBatalla.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Partidas/PartidaHistoria.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/testSinMenu.scala, /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/src/main/scala/Lugares/Lugar.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll sources are invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all sources: number of invalidated sources > 50.0% of all sources[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 14 Scala sources to /home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.1:compile for Scala 2.12.8[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.1:compile for Scala 2.12.8[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 1278b6a8 for Scala compiler version 2.12.8[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/sicoz/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/sicoz/Documentos/Proyecto-POO/PracitiesTamsa/target/scala-2.12/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 8.963957354 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone compiling.[0m
